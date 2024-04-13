@@ -25,22 +25,22 @@ app.post('/add-user', (req, res) => {
   });
 });
 
-app.post('/update-user/:name', (req, res) => {
-  const name = req.params.name;
+app.post('/update-user/:username', (req, res) => {
+  const username = req.params.username;
   const body = req.body;
   res.send(body)
-  UserModel.findOneAndUpdate({name: name}, body, {new: true}).exec().then((result)=>{
+  UserModel.findOneAndUpdate({username: username}, body, {new: true}).exec().then((result)=>{
     res.status(200);res.send(result)
   }).catch((error)=>{
     res.status(400); console.log(error)
   });
 })
 
-app.post('/replace-user/:name', (req, res) => {
-  const name = req.params.name;
+app.post('/replace-user/:username', (req, res) => {
+  const username = req.params.username;
   const body = req.body;
   res.send(body)
-  UserModel.findOneAndReplace({name: name}, body, {new: true}).exec().then((result)=>{
+  UserModel.findOneAndReplace({username: username}, body, {new: true}).exec().then((result)=>{
     res.status(200);res.send(result)
   }).catch((error)=>{
     res.status(400); console.log(error)
@@ -48,18 +48,18 @@ app.post('/replace-user/:name', (req, res) => {
 })
 //puts
 
-app.put('/delete-user/:name', (req, res) => {
-  const name = req.params.name;
-  UserModel.findOneAndDelete({name:name}).exec().then((result)=>{
+app.put('/delete-user/:username', (req, res) => {
+  const username = req.params.username;
+  UserModel.findOneAndDelete({username:username}).exec().then((result)=>{
     res.status(200);res.send(result)
   }).catch((error)=>{
     res.status(400); console.log(error)
   });
 })
 //gets
-app.get('/get-user/:name',(req,res)=>{
-    const name = req.params.name
-    UserModel.findOne({name: name}).exec().then((result)=>{
+app.get('/get-user/:username',(req,res)=>{
+    const username = req.params.username
+    UserModel.findOne({username: username}).exec().then((result)=>{
       res.status(200);res.send(result)
     }).catch(err=>res.send(err));
 })
