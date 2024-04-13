@@ -1,6 +1,6 @@
 function openGoogleLoginPopup() {
   // Replace these with your actual client ID and redirect URI
-  var clientId = '639047990456-94arvdhfleq94ereo1jq32g5u0sjqjjm.apps.googleusercontent.com';
+  var clientId = '639047990456-kbvh7rjq67b6mn0cghi4apqsohp1tnsl.apps.googleusercontent.com';
   var redirectUri = 'https://cijibin314.github.io';
 
   // Construct the Google OAuth URL
