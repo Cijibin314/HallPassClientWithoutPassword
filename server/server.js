@@ -8,8 +8,8 @@ app.use(express.json())
 
 const connectionString = "mongodb+srv://coltonflather:Wonderful1!@userdatacluster.gskuflb.mongodb.net/"
 mongoose.connect(connectionString);
-
-app.listen(3000, "localhost", ()=>{console.log("started")})
+const port = process.env.PORT || 3000;
+app.listen(port, ()=>{console.log("server is running on port " + port)});
 
 //post requests
 app.post('/add-user', (req, res) => {
@@ -66,4 +66,7 @@ app.get('/get-user/:username',(req,res)=>{
 app.post('/test', (req, res) => {
   const body = req.body;
   res.send(body);
+})
+app.get('/test', (req, res) => {
+  res.status(200).send("this worked");
 })
