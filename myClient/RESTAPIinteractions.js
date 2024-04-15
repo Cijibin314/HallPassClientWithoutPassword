@@ -84,3 +84,5 @@ async function deleteUser(username){
         return "User does not exist"
     }
 }
+
+export default {getUserData, userExists, addUser, updateUser, replaceUser, deleteUser};
