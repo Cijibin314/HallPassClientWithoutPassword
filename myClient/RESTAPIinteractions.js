@@ -1,7 +1,12 @@
+async function returnHi(){
+    console.log("hi")
+}
+
+
 async function getUserData(username) {
     try{
-    const options = {method: 'GET', headers: {'User-Agent': 'insomnia/8.6.1'}};
-        return fetch(`http://localhost:5000/get-user/${username}`, options)
+    
+        return fetch(`https://luxuriant-open-pedestrian.glitch.me/get-user/${username}`)
         .then(response => response.json())
         .then(response => {/*console.log(response)*/;return response})
     }catch(err){
@@ -12,6 +17,7 @@ async function getUserData(username) {
     }
 }
 async function userExists(username) {
+    console.log("checking if user exists")
     return getUserData(username).then((result)=>{
         return true;
     }).catch((error)=>{return false;});
@@ -20,7 +26,7 @@ async function addUser(body) {
     try {
         const exists = await userExists(body["username"]);
         if (!exists) {
-            const response = await fetch("http://localhost:5000/add-user", {
+            const response = await fetch("https://luxuriant-open-pedestrian.glitch.me/add-user", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -38,9 +44,10 @@ async function addUser(body) {
     }
 }
 async function updateUser(username, body) {
+    console.log("updating user")
     const exists = await userExists(username);
     if(exists){
-        const response = await fetch(`http://localhost:5000/update-user/${username}`, {
+        const response = await fetch(`https://luxuriant-open-pedestrian.glitch.me/update-user/${username}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -56,7 +63,7 @@ async function updateUser(username, body) {
 async function replaceUser(username, body){
     const exists = await userExists(username);
     if(exists){
-        const response = await fetch(`http://localhost:5000/replace-user/${username}`, {
+        const response = await fetch(`https://luxuriant-open-pedestrian.glitch.me/replace-user/${username}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -72,7 +79,7 @@ async function replaceUser(username, body){
 async function deleteUser(username){
     const exists = await userExists(username);
     if(exists){
-        const response = await fetch(`http://localhost:5000/delete-user/${username}`, {
+        const response = await fetch(`https://luxuriant-open-pedestrian.glitch.me/delete-user/${username}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -84,5 +91,3 @@ async function deleteUser(username){
         return "User does not exist"
     }
 }
-
-export default {getUserData, userExists, addUser, updateUser, replaceUser, deleteUser};

@@ -1,0 +1,1 @@
+setInterval(()=>{fetch("https://luxuriant-open-pedestrian.glitch.me/get-user/coltonflather@gmail.com").then((res)=>{console.log("ran fetcher")}).catch((err)=> console.log(err))},240000)
