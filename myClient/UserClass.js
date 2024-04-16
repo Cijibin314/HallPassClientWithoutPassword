@@ -61,6 +61,7 @@ class User{
         await deleteUser(this.username);
     }
 }
+let myUser;
 setTimeout(()=>{
-    let myUser = new User("coltonflather@gmail.com", "Wonderful1!");
+    myUser = new User("coltonflather@gmail.com", "Wonderful1!");
 }, 1000)
