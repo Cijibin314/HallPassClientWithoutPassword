@@ -1,5 +1,3 @@
-let globalUser;
-
 function login(){
   document.getElementById("login").textContent = "logging in."
   const username = document.getElementById("username").value;
@@ -15,7 +13,8 @@ function login(){
           console.log("correct password")
           const login = document.getElementById("login")
           login.textContent = `Logged in as ${username}`;
-          globalUser = new User(username, inputPassword);
+          // redirecting to the goTo page
+          window.location.href = `../goToPage/goToPage.html?username=${username}&password=${inputPassword}`;
         }else{
           console.log("hi")
           document.getElementById("passwordLabel").textContent = "Incorrect password";

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="goToPage.css">
+    <script src="../js/RESTAPIinteractions.js"></script>
+    <script src="../js/UserClass.js"></script>
+    <script src="./goToPage.js"></script>
+</head>
+<body>
+    <form id="goToForm">
+        <select id="goToSelection">
+            <option value="bathroom">bathroom</option>
+            <option value="office">office</option>
+            <option value="guidance">guidance</option>
+            <option value="other">other</option>
+        </select>
+        <div id="otherWrapper">
+            <label for="otherInput" id="otherLabel">Other Location: </label>
+            <input type="text" id="otherInput">
+        </div>
+    </form>
+    <div id="submitButton" onclick="submitForm()">Submit</div>
+</body>
+</html>
