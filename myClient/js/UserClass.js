@@ -46,7 +46,11 @@ class User{
         const keys = Object.keys(locationObj);
         for(const key of keys){
             if(locationObj[key]){
-                return key;
+                if(key !== "other"){
+                    return key;
+                }else{
+                    return locationObj[key];
+                }
             }
         }
     }

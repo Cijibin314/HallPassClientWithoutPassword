@@ -1,3 +1,16 @@
+const urlParams = new URLSearchParams(window.location.search);
+
+// Get the value of the 'username' parameter
+try{
+  const username = urlParams.get('username');
+  const password = urlParams.get('password');
+  document.getElementById("username").value = username;
+  document.getElementById("password").value = password;
+}catch(err){
+
+}
+
+
 function login(){
   document.getElementById("login").textContent = "logging in."
   const username = document.getElementById("username").value;
