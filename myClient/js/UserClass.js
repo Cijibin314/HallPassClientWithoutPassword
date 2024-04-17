@@ -28,21 +28,25 @@ class User{
             "absent": false,
             "other": ""
         }
-        try{
-            blankLocation[location] = true;
-            await updateUser(this.username, {"location": blankLocation})
-        }catch{
+        
+            const locations = Object.keys(blankLocation);
+            for(const key of locations){
+                if(key !== "other" && location === key){
+                    blankLocation[location] = true;
+                    return updateUser(this.username, {"location": blankLocation}).then((response) => {return response;}).catch(error => {return error})
+                }
+            }
             blankLocation["other"] = location;
-            await updateUser(this.username, {"location": blankLocation})
-        }
-    }
+            return updateUser(this.username, {"location": blankLocation}).then((response) => {return response;}).catch(error => {return error})
+        
+}
     async getLocation(){
         const dataObj = await getUserData(this.username);
         const locationObj = dataObj["location"];
-        const keys = locationObj.keys();
-        for(const key in keys){
+        const keys = Object.keys(locationObj);
+        for(const key of keys){
             if(locationObj[key]){
-                return locationObj[key];
+                return key;
             }
         }
     }
@@ -51,17 +55,13 @@ class User{
         return dataObj["location"];
     }
     async setPassword(password){
-        await updateUser(this.username, {"password": password})
+        return await updateUser(this.username, {"password": password})
     }
     async getPassword(){
         const dataObj = await getUserData(this.username);
         return dataObj["password"];
     }
     async deleteUser(){
-        await deleteUser(this.username);
+        return await deleteUser(this.username);
     }
 }
-let myUser;
-setTimeout(()=>{
-    myUser = new User("coltonflather@gmail.com", "Wonderful1!");
-}, 1000)
