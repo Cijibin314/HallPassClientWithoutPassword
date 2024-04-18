@@ -38,11 +38,13 @@ function submitForm(){
     const regularInput = document.getElementById("goToSelection").value;
     if(otherInput){
         console.log("setting location to " + otherInput)
+        document.getElementById("submitButton").textContent = "Submitting..."
         newUser.setLocation(otherInput).then((result) => {
             window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
         })
     }else{
         console.log("setting location to " + regularInput)
+        document.getElementById("submitButton").textContent = "Submitting..."
         newUser.setLocation(regularInput).then((result) => {
             window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
         })

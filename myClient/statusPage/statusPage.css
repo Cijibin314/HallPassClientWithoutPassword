@@ -16,7 +16,8 @@ body {
 }
 
 #backToLocationChoosing,
-#backToLogin {
+#backToLogin,
+#backInRoom {
     padding: 10px 20px;
     background-color: #1772d3;
     color: #fff;
@@ -28,6 +29,7 @@ body {
 }
 
 #backToLocationChoosing:hover,
-#backToLogin:hover {
+#backToLogin:hover,
+#backInRoom:hover {
     background-color: #12559b;
 }

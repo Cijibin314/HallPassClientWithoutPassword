@@ -12,15 +12,15 @@ try{
 
 
 function login(){
-  document.getElementById("login").textContent = "logging in."
+  document.getElementById("login").textContent = "Logging in."
   const username = document.getElementById("username").value;
   const inputPassword = document.getElementById("password").value;
   userExists(username).then((userExists)=>{
-    document.getElementById("login").textContent = "logging in.."
+    document.getElementById("login").textContent = "Logging in.."
     if(userExists){
       console.log("user exists")
       getUserData(username).then(userData =>{
-        document.getElementById("login").textContent = "logging in..."
+        document.getElementById("login").textContent = "Logging in..."
         const correctPassword = userData.password;
         if(correctPassword === inputPassword){
           const login = document.getElementById("login")

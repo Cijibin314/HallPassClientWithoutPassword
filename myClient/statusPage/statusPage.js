@@ -6,12 +6,13 @@ const urlParams = new URLSearchParams(window.location.search);
 const username = urlParams.get('username');
 const password = urlParams.get('password');
 // Use the username in your page login
+let newUser;
 function initializePage(){
 
     let destination;
 
 
-    const newUser = new User(username, password);
+    newUser = new User(username, password);
 
     const date = new Date;
     date.setTime(date.getTime());
@@ -34,12 +35,12 @@ function initializePage(){
 }
 initializePage();
 
-function backToLogin(){
-
-}
 function backToLocationChoosing(){
     window.location.href = `../goToPage/goToPage.html?username=${username}&password=${password}`
 }
 function backToLogin(){
     window.location.href = `../mainPage/index.html?username=${username}&password=${password}`
+}
+async function backInRoom(){
+    newUser.setLocation("inRoom").then(()=>{backToLogin()})
 }
