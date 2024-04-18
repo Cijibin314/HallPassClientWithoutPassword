@@ -23,12 +23,14 @@ function submitForm(){
     const regularInput = document.getElementById("goToSelection").value;
     if(otherInput){
         console.log("setting location to " + otherInput)
-        newUser.setLocation(otherInput);
-        window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+        newUser.setLocation(otherInput).then((result) => {
+            window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+        })
     }else{
         console.log("setting location to " + regularInput)
-        newUser.setLocation(regularInput);
-        window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+        newUser.setLocation(regularInput).then((result) => {
+            window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+        })
     }
 }
 
