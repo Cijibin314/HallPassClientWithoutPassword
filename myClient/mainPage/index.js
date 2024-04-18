@@ -1,13 +1,13 @@
-const urlParams = new URLSearchParams(window.location.search);
-
 // Get the value of the 'username' parameter
 try{
+  const urlParams = new URLSearchParams(window.location.search);
   const username = urlParams.get('username');
   const password = urlParams.get('password');
-  document.getElementById("username").value = username;
-  document.getElementById("password").value = password;
+  setTimeout(()=>{
+    document.getElementById("username").value = username;
+    document.getElementById("password").value = password;
+  }, 500)
 }catch(err){
-
 }
 
 
@@ -64,7 +64,7 @@ function login(){
 function insertBefore(parent, referenceElement, contents) {
   let newElement = document.createElement("p")
   newElement.textContent = contents
-  newElement.style.color = "red"
+  newElement.style.color = "black"
   parent.insertBefore(newElement, referenceElement);
   return newElement;
 }

@@ -17,7 +17,7 @@ body, html {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: rgb(78, 78, 115);
+    background-color: #d76f13;
 }
 
 h2 {
@@ -35,14 +35,14 @@ input[type="password"],
 }
 
 .button {
-    background-color: #007bff;
+    background-color: #000000;
     color: #fff;
     text-align: center;
     cursor: pointer;
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #c3751c;
 }
 #background {
     position: fixed;
@@ -50,6 +50,24 @@ input[type="password"],
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, #1772d3, #000033);
+    background-image: linear-gradient(to bottom, #ff8400, #000000);
     z-index: -1; /* Ensure the background is behind other content */
+}
+#header{
+    color:rgb(0, 0, 0);
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    position:absolute;
+    top:10%;
+    left:50%;
+    transform: translate(-50%, -10%);
+}
+#tigerImg{
+    position:absolute;
+    top:19%;
+    left:50%;
+    transform: translate(-50%, -19%);
+    width:22%;
+    height:12%;
 }

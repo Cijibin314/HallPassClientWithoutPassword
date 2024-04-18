@@ -19,8 +19,10 @@ function initializePage(){
     
     let minutes = date.getMinutes();
     let hour = date.getHours();
+    let afterNoon = false;
     if(hour > 12){
         hour -= 12;
+        afterNoon = true;
     }
     if(minutes < 10){
         minutes = "0" + minutes;
@@ -32,8 +34,13 @@ function initializePage(){
         });
         newUser.getRoom().then((result) => {
             document.getElementById("leftFrom").textContent = `Left From: ${result}`;
+            document.getElementById("backInRoom").textContent = `Returned to Room ${result}`;
         })
-        document.getElementById("timeLeft").textContent = `Left At: ${hour}:${minutes}`;
+        if(afterNoon){
+            document.getElementById("timeLeft").textContent = `Left At: ${hour}:${minutes}p.m.`;
+        }else{
+            document.getElementById("timeLeft").textContent = `Left At: ${hour}:${minutes}a.m.`;
+        }
     }, 1500)
 }
 initializePage();

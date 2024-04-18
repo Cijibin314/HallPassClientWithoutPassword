@@ -12,11 +12,18 @@
     <script src="./statusPage.js"></script>
 </head>
 <body>
-    <div id="destination">Destination: Retrieving...</div>
-    <div id="timeLeft">Left At: Loading...</div>
-    <div id="leftFrom">Left From: Retrieving...</div>
-    <div id="backToLocationChoosing" onclick="backToLocationChoosing()">Back To Location Choosing</div>
-    <div id="backToLogin" onclick="backToLogin()">Back To Login</div>
-    <div id="backInRoom" onclick="backInRoom()">I'm Back in my room!</div>
+    <div id="background"></div>
+    <h1 id="header">IHS Hall Pass</h1>
+    <img src="https://up.yimg.com/ib/th?id=OIP.1xNKyhKZKpOa7yI4xl7TAAHaIK&pid=Api&rs=1&c=1&qlt=95&w=109&h=120" alt="tigerImg" id="tigerImg">
+    <div id="status">
+        <div id="destination">Destination: Retrieving...</div>
+        <div id="timeLeft">Left At: Loading...</div>
+        <div id="leftFrom">Left From: Retrieving...</div>
+    </div>
+    <div id="buttons">
+        <div id="backToLocationChoosing" onclick="backToLocationChoosing()">Re-Choose Location</div>
+        <div id="backToLogin" onclick="backToLogin()">Back To Login</div>
+        <div id="backInRoom" onclick="backInRoom()">Returned to Room ...</div>
+    </div>
 </body>
 </html>
