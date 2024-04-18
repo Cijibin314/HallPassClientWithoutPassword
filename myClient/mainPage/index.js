@@ -28,20 +28,47 @@ function login(){
           // redirecting to the goTo page
           window.location.href = `../goToPage/goToPage.html?username=${username}&password=${inputPassword}`;
         }else{
-          console.log("hi")
-          document.getElementById("passwordLabel").textContent = "Incorrect password";
-          document.getElementById("login").textContent = "Login"
-          setTimeout(() => {
-            document.getElementById("passwordLabel").textContent = "Password: ";
-          }, 2000)
+          const parent = document.getElementById("password-container")
+          const referenceElement = document.getElementById("password")
+          const newEle = insertBefore(parent, referenceElement, "Incorrect Password")
+          const referencePassword = document.getElementById("password").value;
+          let currentPassword = referencePassword;
+          const interval = setInterval(() =>{
+            currentPassword = document.getElementById("password").value;
+            if(currentPassword !== referencePassword){
+              document.getElementById("login").textContent = "Login"
+              removeEle(parent, newEle)
+              clearInterval(interval);
+            }
+          }, 500)
         }
       })
     }else{
-      document.getElementById("usernamLabel").textContent = "User does not exist";
-      document.getElementById("login").textContent = "Login";
-      setTimeout(() => {
-        document.getElementById("usernameLabel").textContent = "Username/Gmail: ";
-      }, 2000)
+      const parent = document.getElementById("username-container")
+      const referenceElement = document.getElementById("username")
+      const newEle = insertBefore(parent, referenceElement, "User Dosen't exist")
+      const referencePassword = document.getElementById("username").value;
+      let currentPassword = referencePassword;
+      const interval = setInterval(() =>{
+        currentPassword = document.getElementById("username").value;
+        if(currentPassword !== referencePassword){
+          document.getElementById("login").textContent = "Login"
+          removeEle(parent, newEle)
+          clearInterval(interval);
+        }
+      }, 500)
     }
   })
+}
+
+function insertBefore(parent, referenceElement, contents) {
+  let newElement = document.createElement("p")
+  newElement.textContent = contents
+  newElement.style.color = "red"
+  parent.insertBefore(newElement, referenceElement);
+  return newElement;
+}
+
+function removeEle(parent, elementToDelete){
+  parent.removeChild(elementToDelete);
 }
