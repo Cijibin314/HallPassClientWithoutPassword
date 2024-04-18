@@ -34,7 +34,6 @@ function initializePage(){
         });
         newUser.getRoom().then((result) => {
             document.getElementById("leftFrom").textContent = `Left From: ${result}`;
-            document.getElementById("backInRoom").textContent = `Returned to Room ${result}`;
         })
         if(afterNoon){
             document.getElementById("timeLeft").textContent = `Left At: ${hour}:${minutes}p.m.`;
