@@ -10,7 +10,8 @@ body {
 }
 
 #destination,
-#timeLeft {
+#timeLeft,
+#leftFrom {
     font-size: 24px;
     margin-bottom: 20px;
 }

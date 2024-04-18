@@ -25,11 +25,14 @@ function initializePage(){
     if(minutes < 10){
         minutes = "0" + minutes;
     }
-    setTimeout(()=>{
+    setTimeout(async function (){
         newUser.getLocation().then((result) => {
             destination = result;
             document.getElementById("destination").textContent = `Destination: ${destination}`;
         });
+        newUser.getRoom().then((result) => {
+            document.getElementById("leftFrom").textContent = `Left From: ${result}`;
+        })
         document.getElementById("timeLeft").textContent = `Left At: ${hour}:${minutes}`;
     }, 1500)
 }
