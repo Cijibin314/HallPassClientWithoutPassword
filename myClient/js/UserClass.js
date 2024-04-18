@@ -44,15 +44,18 @@ class User{
         const dataObj = await getUserData(this.username);
         const locationObj = dataObj["location"];
         const keys = Object.keys(locationObj);
+        let location;
         for(const key of keys){
             if(locationObj[key]){
                 if(key !== "other"){
-                    return key;
+                    location = key;
                 }else{
-                    return locationObj[key];
+                    location = locationObj[key];
                 }
             }
         }
+        location = location[0].toUpperCase() + location.slice(1);
+        return location;
     }
     async getLocationObj(){
         const dataObj = await getUserData(this.username);

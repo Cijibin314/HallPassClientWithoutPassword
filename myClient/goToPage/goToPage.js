@@ -3,8 +3,8 @@ const urlParams = new URLSearchParams(window.location.search);
 
 // Get the value of the 'username' parameter
 
-const username = "coltonflather@gmail.com"//urlParams.get('username');
-const password = "Wonderful1!"//urlParams.get('password');
+const username = urlParams.get('username');
+const password = urlParams.get('password');
 // Use the username in your page login
 const newUser = new User(username, password);
 setInterval(()=>{
@@ -39,12 +39,12 @@ function submitForm(){
     if(otherInput){
         console.log("setting location to " + otherInput)
         newUser.setLocation(otherInput).then((result) => {
-            //window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+            window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
         })
     }else{
         console.log("setting location to " + regularInput)
         newUser.setLocation(regularInput).then((result) => {
-            //window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+            window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
         })
     }
 }

@@ -12,27 +12,25 @@ function initializePage(){
 
 
     const newUser = new User(username, password);
+
+    const date = new Date;
+    date.setTime(date.getTime());
+    
+    let minutes = date.getMinutes();
+    let hour = date.getHours();
+    if(hour > 12){
+        hour -= 12;
+    }
+    if(minutes < 10){
+        minutes = "0" + minutes;
+    }
     setTimeout(()=>{
         newUser.getLocation().then((result) => {
             destination = result;
-            document.getElementById("destination").textContent = destination;
+            document.getElementById("destination").textContent = `Destination: ${destination}`;
         });
+        document.getElementById("timeLeft").textContent = `Left At: ${hour}:${minutes}`;
     }, 1500)
-    // setting up the clock
-    let currentTime = new Date();
-    const fiveMinutesInMillis = 5 * 60 * 1000;
-    const futureTime = new Date(currentTime.getTime() + fiveMinutesInMillis);
-
-    let timeDifference;
-    setInterval(()=>{
-        currentTime = new Date();
-        timeDifference = Math.round((futureTime.getTime() - currentTime.getTime()) / 60000);
-        document.getElementById("timeLeft").textContent = timeDifference + " minutes";
-        if(timeDifference <= 0){
-            document.getElementById("timeLeft").textContent = "Expired";
-            document.getElementById("timeLeft").style.color = "red";
-        }
-    }, 5000)
 }
 initializePage();
 
