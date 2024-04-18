@@ -58,6 +58,13 @@ class User{
         const dataObj = await getUserData(this.username);
         return dataObj["location"];
     }
+    async getRoom(){
+        const dataObj = await getUserData(this.username);
+        return dataObj["roomLeft"];
+    }
+    async setRoom(room){
+        return await updateUser(this.username, {"roomLeft": room})
+    }
     async setPassword(password){
         return await updateUser(this.username, {"password": password})
     }

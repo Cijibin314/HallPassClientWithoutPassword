@@ -12,19 +12,29 @@
     <script src="./goToPage.js"></script>
 </head>
 <body>
-    <form id="goToForm">
-        <select id="goToSelection">
-            <option value="bathroom">bathroom</option>
-            <option value="office">office</option>
-            <option value="guidance">guidance</option>
-            <option value="other">other</option>
-        </select>
-        <div id="otherWrapper">
-            <label for="otherInput" id="otherLabel">Other Location: </label>
-            <input type="text" id="otherInput">
+    <div id="form-container">
+        <div id="roomLeftForm">
+            <div id="roomLeftLabel">Room Left: </div>
+            <input type="text" id="roomLeftInput">
         </div>
-    </form>
-    <div id="submitButton" onclick="submitForm()">Submit</div>
-    <div id="backToLogin" onclick="backToLogin()">Back To Login</div>
+        <div id="destinationForm">
+            <div id="header">Destination: </div>
+            <form id="goToForm">
+                <select id="goToSelection">
+                    <option value="bathroom">Bathroom</option>
+                    <option value="office">Office</option>
+                    <option value="guidance">Guidance</option>
+                    <option value="other">Other</option>
+                </select>
+                <div id="otherWrapper">
+                    <label for="otherInput" id="otherLabel">Other Location: </label>
+                    <input type="text" id="otherInput">
+                </div>
+            </form>
+            <div id="submitButton" onclick="submitForm()">Submit</div>
+            <div id="backToLogin" onclick="backToLogin()">Back To Login</div>
+        </div>
+    </div>
+    <div id="gradientBackground"></div>
 </body>
 </html>

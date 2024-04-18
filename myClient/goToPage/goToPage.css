@@ -1,3 +1,91 @@
-#otherWrapper{
-    visibility: hidden;
+/* Form container styling */
+#form-container {
+    width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Header styling */
+#header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Select box styling */
+#goToSelection {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Other input wrapper styling */
+#otherWrapper {
+    visibility:hidden; /* Hide initially */
+}
+
+/* Other input styling when shown */
+#otherWrapper.active {
+    display: block;
+    margin-bottom: 15px;
+}
+
+/* Label styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input styling */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button styling */
+#submitButton,
+#backToLogin {
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #1772d3;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Hover effect for buttons */
+#submitButton:hover,
+#backToLogin:hover {
+    background-color: #125dab;
+}
+
+/* Background gradient */
+#gradientBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: linear-gradient(to bottom, #1772d3, #000033);
+    z-index: -1;
+}
+#roomLeftLabel{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+#roomLeftInput{
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }

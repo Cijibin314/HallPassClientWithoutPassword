@@ -27,7 +27,7 @@ function initializePage(){
     setInterval(()=>{
         currentTime = new Date();
         timeDifference = Math.round((futureTime.getTime() - currentTime.getTime()) / 60000);
-        document.getElementById("timeLeft").textContent = timeDifference;
+        document.getElementById("timeLeft").textContent = timeDifference + " minutes";
         if(timeDifference <= 0){
             document.getElementById("timeLeft").textContent = "Expired";
             document.getElementById("timeLeft").style.color = "red";
