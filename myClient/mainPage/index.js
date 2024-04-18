@@ -23,7 +23,6 @@ function login(){
         document.getElementById("login").textContent = "logging in..."
         const correctPassword = userData.password;
         if(correctPassword === inputPassword){
-          console.log("correct password")
           const login = document.getElementById("login")
           login.textContent = `Logged in as ${username}`;
           // redirecting to the goTo page
@@ -38,9 +37,8 @@ function login(){
         }
       })
     }else{
-      console.log("user does not exist")
       document.getElementById("usernamLabel").textContent = "User does not exist";
-      document.getElementById("login").textContent = "Login"
+      document.getElementById("login").textContent = "Login";
       setTimeout(() => {
         document.getElementById("usernameLabel").textContent = "Username/Gmail: ";
       }, 2000)
