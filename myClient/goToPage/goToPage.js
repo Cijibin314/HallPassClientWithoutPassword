@@ -24,14 +24,18 @@ function submitForm(){
         console.log("setting room to " + roomLeft)
         newUser.setRoom(roomLeft).catch(err => console.log(err));
     }else{
-        document.getElementById("roomLeftInput").style.borderColor = "red";
-        document.getElementById("roomLeftInput").color = "red";
-        document.getElementById("roomLeftInput").placeholder = "Please enter a room number";
-        setTimeout(()=>{
-            document.getElementById("roomLeftInput").style.borderColor = "";
-            document.getElementById("roomLeftInput").color = "";
-            document.getElementById("roomLeftInput").placeholder = "";
-        }, 2000)
+        const parent = document.getElementById("roomLeftForm")
+        const referenceEle = document.getElementById("roomLeftInput")
+        const newEle = insertBefore(parent, referenceEle, "User needs to input a room number");
+        const referenceRoom = referenceEle.value;
+        let currentRoom = referenceRoom;
+        const interval = setInterval(() =>{
+            currentRoom = document.getElementById("roomLeftInput").value;
+            if(currentRoom !== referenceRoom){
+                removeEle(parent, newEle)
+                clearInterval(interval);
+            }
+        }, 500)
         return "User needs to input a room number";
     }
     const otherInput = document.getElementById("otherInput").value;
