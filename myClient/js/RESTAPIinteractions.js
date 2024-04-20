@@ -2,7 +2,7 @@ async function returnHi(){
     console.log("hi")
 }
 async function getUserData(username){
-    return fetch(`https://hallpassserver2.onrender.com/get-user/${username}`, {
+    return fetch(`https://hallpassservernopassword.onrender.com/get-user/${username}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -40,7 +40,7 @@ async function addUser(body_) {
         return userExists(body_["username"]).then((userData)=>{
             if(!userData){
                 console.log("got to the request")
-                return fetch("https://hallpassserver2.onrender.com/add-user", {
+                return fetch("https://hallpassservernopassword.onrender.com/add-user", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -59,7 +59,7 @@ async function addUser(body_) {
 async function updateUser(name, body_) {
     const exists = await userExists(name);
     if(exists){
-        const response = await fetch(`https://hallpassserver2.onrender.com/update-user/${name}`, {
+        const response = await fetch(`https://hallpassservernopassword.onrender.com/update-user/${name}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -75,7 +75,7 @@ async function updateUser(name, body_) {
 async function replaceUser(username, body){
     const exists = await userExists(username);
     if(exists){
-        const response = await fetch(`https://hallpassserver2.onrender.com/replace-user/${username}`, {
+        const response = await fetch(`https://hallpassservernopassword.onrender.com/replace-user/${username}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -91,7 +91,7 @@ async function replaceUser(username, body){
 async function deleteUser(username){
     const exists = await userExists(username);
     if(exists){
-        const response = await fetch(`https://hallpassserver2.onrender.com/delete-user/${username}`, {
+        const response = await fetch(`https://hallpassservernopassword.onrender.com/delete-user/${username}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"

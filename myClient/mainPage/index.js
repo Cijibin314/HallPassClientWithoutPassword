@@ -2,10 +2,8 @@
 try{
   const urlParams = new URLSearchParams(window.location.search);
   const username = urlParams.get('username');
-  const password = urlParams.get('password');
   setTimeout(()=>{
     document.getElementById("username").value = username;
-    document.getElementById("password").value = password;
   }, 500)
 }catch(err){
 }
@@ -14,35 +12,14 @@ try{
 function login(){
   document.getElementById("login").textContent = "Logging in."
   const username = document.getElementById("username").value.toLowerCase();
-  const inputPassword = document.getElementById("password").value;
-  userExists(username).then((userExists)=>{
+  userExists(username).then((userData)=>{
     document.getElementById("login").textContent = "Logging in.."
-    if(userExists){
-      console.log("user exists")
-      getUserData(username).then(userData =>{
+    if(userData){
         document.getElementById("login").textContent = "Logging in..."
-        const correctPassword = userData.password;
-        if(correctPassword === inputPassword){
           const login = document.getElementById("login")
           login.textContent = `Logged in as ${username}`;
           // redirecting to the goTo page
-          window.location.href = `../goToPage/goToPage.html?username=${username}&password=${inputPassword}`;
-        }else{
-          const parent = document.getElementById("password-container")
-          const referenceElement = document.getElementById("password")
-          const newEle = insertBefore(parent, referenceElement, "Incorrect Password")
-          const referencePassword = referenceElement.value;
-          let currentPassword = referencePassword;
-          const interval = setInterval(() =>{
-            currentPassword = document.getElementById("password").value;
-            if(currentPassword !== referencePassword){
-              document.getElementById("login").textContent = "Login"
-              removeEle(parent, newEle)
-              clearInterval(interval);
-            }
-          }, 500)
-        }
-      })
+          window.location.href = `../goToPage/goToPage.html?username=${username}`;
     }else{
       const parent = document.getElementById("username-container")
       const referenceElement = document.getElementById("username")

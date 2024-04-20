@@ -1,18 +1,10 @@
 class User{
     username;
-    password;
-    constructor(username, password){
-        userExists(username).then((exists)=>{
-            if(exists){
-                getUserData(username).then((data)=>{
-                    if(data.password === password){
-                        console.log("User logged in")
-                        this.username = username;
-                        this.password = password;
-                    }else{
-                        console.log("Password is wrong")
-                    }
-                }).catch(err => console.log(err));
+    constructor(username){
+        userExists(username).then((userData)=>{
+            if(userData){
+                console.log("User logged in")
+                this.username = username;
             }else{
                 console.log("User does not exist")
             }
@@ -67,13 +59,6 @@ class User{
     }
     async setRoom(room){
         return await updateUser(this.username, {"roomLeft": room})
-    }
-    async setPassword(password){
-        return await updateUser(this.username, {"password": password})
-    }
-    async getPassword(){
-        const dataObj = await getUserData(this.username);
-        return dataObj["password"];
     }
     async deleteUser(){
         return await deleteUser(this.username);

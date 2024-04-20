@@ -4,9 +4,8 @@ const urlParams = new URLSearchParams(window.location.search);
 // Get the value of the 'username' parameter
 
 const username = urlParams.get('username');
-const password = urlParams.get('password');
 // Use the username in your page login
-const newUser = new User(username, password);
+const newUser = new User(username);
 setInterval(()=>{
     const optionState = document.getElementById("goToSelection").value
     if(optionState === "other"){
@@ -44,17 +43,17 @@ function submitForm(){
         console.log("setting location to " + otherInput)
         document.getElementById("submitButton").textContent = "Submitting..."
         newUser.setLocation(otherInput).then((result) => {
-            window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+            window.location.href = `../statusPage/statusPage.html?username=${username}`
         })
     }else{
         console.log("setting location to " + regularInput)
         document.getElementById("submitButton").textContent = "Submitting..."
         newUser.setLocation(regularInput).then((result) => {
-            window.location.href = `../statusPage/statusPage.html?username=${username}&password=${password}`
+            window.location.href = `../statusPage/statusPage.html?username=${username}`
         })
     }
 }
 
 function backToLogin(){
-    window.location.href = `../mainPage/index.html?username=${username}&password=${password}`
+    window.location.href = `../mainPage/index.html?username=${username}`
 }
