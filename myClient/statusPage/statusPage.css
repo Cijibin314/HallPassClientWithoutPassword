@@ -60,4 +60,6 @@ body {
     transform: translate(-50%, -19%);
     width:22%;
     height:12%;
+    max-width: 100px;
+    max-height: 100px;
 }
